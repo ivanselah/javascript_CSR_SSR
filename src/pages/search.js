@@ -1,5 +1,5 @@
 export const renderSearch = async ({ searchParams }) => {
-  const APP = document.querySelector('#app');
+  const APP = document.querySelector('#next');
   const defaultInnerHTML = `
      <h1>Search Page</h1>
      <h4>Searching....</h4>

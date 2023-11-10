@@ -1,6 +1,7 @@
-import express, { response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -16,14 +17,13 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  fs.readFile('dist/next.html', (err, data) => {
+    res.send(data.toString().replace('<!--__NEXT_DATA__-->', 'Hello World!'));
+  });
 });
 
 app.get('/search', (req, res) => {
   const { keyword } = req.query;
-  if (!keyword) {
-    return res.sendStatus(500);
-  }
   const options = {
     method: 'GET',
     headers: {

@@ -16,16 +16,6 @@ const getTargetValue = (url) => {
   return { pathname, params };
 };
 
-window.addEventListener('popstate', (event) => {
-  const targetLocation = event.target.location;
-  const { pathname: targetRender, params } = getTargetValue(targetLocation.pathname + targetLocation.search);
-  if (targetRender) {
-    router.getRoutes[targetRender]({
-      searchParams: params,
-    });
-  }
-});
-
 export const goToPage = (url, { isPush } = {}) => {
   const { pathname, params } = getTargetValue(url);
   const targetRender = router.getRoutes[pathname];
@@ -41,5 +31,16 @@ export const goToPage = (url, { isPush } = {}) => {
 
 export const start = (params) => {
   router.setRoutes = params;
+
+  window.addEventListener('popstate', (event) => {
+    const targetLocation = event.target.location;
+    const { pathname: targetRender, params } = getTargetValue(targetLocation.pathname + targetLocation.search);
+    if (targetRender) {
+      router.getRoutes[targetRender]({
+        searchParams: params,
+      });
+    }
+  });
+
   goToPage(location.pathname + location.search);
 };

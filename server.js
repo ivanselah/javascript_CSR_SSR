@@ -18,7 +18,17 @@ app.use(
 
 app.get('/', (req, res) => {
   fs.readFile('dist/next.html', (err, data) => {
-    res.send(data.toString().replace('<!--__NEXT_DATA__-->', 'Hello World!'));
+    res.send(
+      data.toString().replace(
+        '<!--__NEXT_DATA__-->',
+        `<h1>Movie Info</h1>
+    <form>
+         <input type="search" name="keyword" />
+         <button type="submit">Search</button>
+    </form>
+   `
+      )
+    );
   });
 });
 
@@ -37,5 +47,5 @@ app.get('/search', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('listening on port');
+  console.log(`Start Server 🚀 http://localhost:${port}`);
 });

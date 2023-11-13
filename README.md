@@ -14,7 +14,7 @@ yarn start
 - 라우팅 및 네비게이션: History API를 사용하여 클라이언트 측에서의 라우팅 및 네비게이션을 구현
 
 - 프론트엔드 개발 분야의 실무에서 프로젝트 경험을 향상시키도록 프레임워크 및 라이브러리가 왜 필요한지 무엇때문에 개발되었는지 이해를 목표로 함
-  ex. React.js, Next.js
+  ex. React.js, Next.js (Hydration)
 
 ### 기술 스택
 

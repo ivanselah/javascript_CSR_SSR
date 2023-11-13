@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import fs from 'fs';
+import { getInitialHTML } from './dist/index.js';
 
 dotenv.config();
 
@@ -17,18 +18,8 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  fs.readFile('dist/next.html', (err, data) => {
-    res.send(
-      data.toString().replace(
-        '<!--__NEXT_DATA__-->',
-        `<h1>Movie Info</h1>
-    <form>
-         <input type="search" name="keyword" />
-         <button type="submit">Search</button>
-    </form>
-   `
-      )
-    );
+  fs.readFile('index.html', (err, data) => {
+    res.send(data.toString().replace('<!--__NEXT_DATA__-->', getInitialHTML['/']));
   });
 });
 

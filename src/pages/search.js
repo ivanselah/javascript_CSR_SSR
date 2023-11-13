@@ -1,3 +1,10 @@
+export const getInitialHTML = () => {
+  return `
+    <h1>Search Page</h1>
+    <h4>Searching....</h4>
+  `;
+};
+
 export const renderSearch = async ({ searchParams }) => {
   const APP = document.querySelector('#next');
   const defaultInnerHTML = `

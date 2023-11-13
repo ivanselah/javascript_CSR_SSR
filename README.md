@@ -1,4 +1,9 @@
-## CSR SSR 구현 프로젝트
+```
+yarn build
+yarn start
+```
+
+### CSR SSR 구현 프로젝트
 
 이 프로젝트는 <U>자바스크립트</U>를 사용하여 Client-Side Rendering (CSR)과 Server-Side Rendering (SSR)을 구현한 간단한 웹 애플리케이션입니다.
 

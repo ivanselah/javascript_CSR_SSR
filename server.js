@@ -64,6 +64,4 @@ app.get('/api/search', async (req, res) => {
   return res.send(movies);
 });
 
-app.listen(port, () => {
-  console.log(`Start Server 🚀 http://localhost:${port}`);
-});
+app.listen(port);

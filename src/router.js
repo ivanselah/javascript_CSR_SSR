@@ -16,13 +16,14 @@ const getTargetValue = (url) => {
   return { pathname, params };
 };
 
-export const goToPage = (url, { isPush } = {}) => {
+export const goToPage = (url, { isPush, initialData } = {}) => {
   const { pathname, params } = getTargetValue(url);
   const targetRender = router.getRoutes[pathname];
   if (targetRender) {
     isPush && history.pushState({}, '', url);
     targetRender({
       searchParams: params,
+      initialData,
     });
     return;
   }
@@ -42,5 +43,7 @@ export const start = (params) => {
     }
   });
 
-  goToPage(location.pathname + location.search);
+  goToPage(location.pathname + location.search, {
+    initialData: window.__INITIAL_DATA__,
+  });
 };
